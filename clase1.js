@@ -5,6 +5,7 @@ var tuedad = prompt ("Ingresa tu edad");
 var unnumero = prompt ("Elegi un numero del 90 a 140");
 var edad =  parseInt (tuedad);
 var numeroal = parseInt (unnumero);
+console.log("Tu peso dentro de 5 años " + (numeroal - edad));
 
 var comidafavo = prompt ("Ingresa tu comida favorita ");
 var club = prompt ("Ingresa tu club de futbol ");
