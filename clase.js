@@ -50,7 +50,6 @@ var dia= [
     'Lunes' , 'Martes' , 'Miercoles' , 'Jueves' , 'Viernes' , 'Sabado' , 'Domingo',
 ]
 
-
 function diasDeSemana() {
     var elejirDia =  prompt ('Elegir un dia de la Semana')
     var i=0 
@@ -67,25 +66,32 @@ function diasDeSemana() {
     switch (elejirDia){
         case 'Lunes':
             check()
+            console.log (dia[0])
         break
         case 'Martes':
             check()
+            console.log (dia[1])
         break
         case 'Miercoles':
             check()
+            console.log (dia[2])
         break
         case 'Jueves':
             check()
+            console.log (dia[3])
         break
         case 'Viernes':
             check()
+            console.log (dia[4])
         break
         case 'Sabado':
             check()
+            console.log (dia[5])
         break
         case 'Domingo': 
             // check()
             alert ('Y TU CUERPO LO SABE')
+            console.log (dia[6])
         break
         default:
             alert('REVISAR ORTOGRAFIA O MAYUSCULAS')
