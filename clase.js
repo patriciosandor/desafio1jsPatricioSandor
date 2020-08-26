@@ -95,6 +95,7 @@ function diasDeSemana() {
         break
         default:
             alert('REVISAR ORTOGRAFIA O MAYUSCULAS')
+            console.log ('TE EQUIVOCASTE !!!!!!')
     }
 }
 // -----------------------------------------------------------------
