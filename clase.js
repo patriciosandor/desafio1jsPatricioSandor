@@ -516,9 +516,10 @@
 // }
 
 
-
 //--------------------------------------------------------------------------
-//CLASE 6 ejercicio
+//--------------------------------------------------------------------------
+                        //CLASE 6 
+//--------------------------------------------------------------------------
 //--------------------------------------------------------------------------
 
 // Ejemplo 1
@@ -542,19 +543,409 @@
 // }
 
 // Ejemplo 2
-function agregar(){
-var mitadDeAnio1 = [
-    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo','Junio',
-]
-var mitadDeAnio2 = [
-    'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre',
-]
+// function agregar(){
+// var mitadDeAnio1 = [
+//     'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo','Junio',
+// ]
+// var mitadDeAnio2 = [
+//     'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre',
+// ]
 
-function unirAnios(a1, a2) {
-    arrayJuntos = a1.concat(a2);
-    console.log (arrayJuntos); 
+// function unirAnios(a1, a2) {
+//     arrayJuntos = a1.concat(a2);
+//     console.log (arrayJuntos); 
+// }
+
+// unirAnios(mitadDeAnio1 , mitadDeAnio2);
+
+// }
+
+//-------------------------------
+// EJEMPLO 1 DE CLASE PARA CARRITO
+//-------------------------------
+// let carrito = [];
+// let buscarProducto = (carrito, buscado) => {
+// 	for (let i = 0; i < carrito.length; i++) {
+// 		if (carrito[i].descripcion === buscado) {
+// 			return i;
+// 		}
+// 	}
+// 	return -1;
+// };
+// let agregarCarrito = (descripcion, precio) => {
+// 	let posicion = buscarProducto(carrito, descripcion);
+// 	if (posicion >= 0) {
+// 		carrito[posicion].cantidad++;
+// 	} else {
+// 		const producto = {
+// 			descripcion: descripcion,
+// 			precio: precio,
+// 			cantidad: 1,
+// 		};
+// 		carrito.push(producto);
+// 	}
+// };
+// agregarCarrito("Televisor", 1500);
+// agregarCarrito("Celular", 2500);
+// agregarCarrito("Televisor", 2500);
+// agregarCarrito("Celular", 2500);
+// agregarCarrito("Celular", 2500);
+// agregarCarrito("Notebook", 1500);
+// console.table(carrito);
+
+
+// //-------------------------------
+// // EJEMPLO 1 DE CLASE PARA CARRITO
+// //-------------------------------
+
+// var carrito = [];
+// agregarAlCarrito('Televisor', 25000)
+// agregarAlCarrito('Celular', 55000)
+// agregarAlCarrito('Celular', 55000)
+// agregarAlCarrito('Monitor', 65000)
+// agregarAlCarrito('Teclado', 65000)
+// agregarAlCarrito('Televisor', 25000)
+// agregarAlCarrito('Televisor', 25000)
+// agregarAlCarrito('Teclado', 65000)
+// agregarAlCarrito('Teclado', 65000)
+// agregarAlCarrito('Teclado', 65000)
+// agregarAlCarrito('Teclado', 65000)
+// sacarDelCarrito('Televisor', 25000)
+// /* Agregar al carrito METODO 1 */
+// // Funcion agregar al carrito con ciclo FOR comun
+// function agregarAlCarrito(nombre, precio) {
+//     // Verificar si un producto existe con ciclo FOR comun
+//     if (carrito.length > 0) {
+//         for (let i = 0; i < carrito.length; i++) {
+//             if (carrito[i].nombre == nombre) {
+//                 // Si el producto existe, le sumo 1 a la cantidad y salgo de la function con return
+//                 carrito[i].cant++;
+//                 return
+//             }
+//         }
+//         // Si recorrio todo el arreglo y no encontro el producto, lo agregamos al carrito
+//         producto = {
+//             nombre: nombre,
+//             precio: precio,
+//             cant: 1
+//         }
+//         carrito.push(producto);
+//     } else {
+//         // Si el carrito esta vacio agrego el producto
+//         producto = {
+//             nombre: nombre,
+//             precio: precio,
+//             cant: 1
+//         }
+//         carrito.push(producto);
+//     }
+// }
+// console.table(carrito)
+// /* Agregar al carrito METODO 2 */
+// // Funcion agregar al carrito con funcion some() o find()
+// function agregarAlCarrito(nombre, precio) {
+//     // Busca si existe algun elemento (objeto) del arreglo "carrito" que tenga la propiedad nombre igual al parametro nombre que le pasamos a la funcion
+//     // y devuelve ese elemento (si existe)
+//     var resultado = carrito.find(producto => producto.nombre == nombre)
+//     if (resultado) {
+//         // Si la funcion find() encuentra un elemento que cumpla la condicion, aumentamos la cantidad en uno
+//         resultado.cant++;
+//     } else {
+//         // Si no se encuentra el producto en el carrito, se agrega una unidad del mismo 
+//         const productoCarrito = {
+//             nombre: nombre,
+//             precio: precio,
+//             cant: 1
+//         }
+//         carrito.push(productoCarrito)
+//     }
+// }
+// /* Agregar al carrito METODO 3 */
+// function agregarAlCarrito(nombre, precio) {
+//     const producto = {
+//         nombre: nombre,
+//         precio: precio,
+//         cant: 1
+//     }
+//     // Revisa si un elemento ya existe en el carrito (El metodo find() devuelve TRUE o FALSE)
+//     const existe = carrito.some(producto => producto.nombre === nombre);
+//     if (existe) {
+//         // El metodo map() itera sobre el arreglo pero devuelve como resultado un arreglo nuevo con el resultado de la función aplicad a cada uno de sus elementos.
+//         const carritoProductos = carrito.map(producto => {
+//             if (producto.nombre === nombre) {
+//                 // Retorna el item duplicado
+//                 producto.cant++;
+//                 return producto;
+//             } else {
+//                 // Retorna los que no estan repetidos
+//                 return producto;
+//             }
+//         });
+//         // El arreglo carrito productos ahora contiene todos los mismos productos que antes, pero se le modifico la cantidad al producto agregado (si corresponde)
+//         carrito = [...carritoProductos];
+//     } else {
+//         // Si el producto no existe, se agrega al arreglo de carrito
+//         carrito = [...carrito, producto];
+//     }
+// }
+// // Sacar del carrito un producto
+// function sacarDelCarrito(nombre) {
+//     var resultado = carrito.find(elemento => elemento.nombre == nombre)
+//     if (resultado) {
+//         // console.log("true")
+//         resultado.cant--;
+//     }
+// }
+// console.table(carrito)
+
+//--------------------------------------------------------------------------
+//--------------------------------------------------------------------------
+                        //CLASE 7
+//--------------------------------------------------------------------------
+//--------------------------------------------------------------------------
+
+
+
+// /* Metodos para localStorage (Para sessionStorage es igual) */
+// localStorage.setItem('nombre', 'Mi nombre') // Inserto un dato con setItem
+// localStorage.curso = 'Javascript' // Inserto un dato con sintaxis de punto
+
+// var curso = localStorage.getItem('curso') // Leo un valor con getItem('clave')
+// var nombre = localStorage.nombre // Leo un valor con la sintaxis de punto
+
+
+// // Creo una variable, arreglo de objetos
+// var objeto = [{
+// 	"id": 1,
+// 	"first_name": "Ellis"
+// }, {
+// 	"id": 2,
+// 	"first_name": "Reinwald"
+// }, {
+// 	"id": 3,
+// 	"first_name": "Timmy"
+// }, {
+// 	"id": 4,
+// 	"first_name": "Christophe"
+// }, {
+// 	"id": 5,
+// 	"first_name": "Cass"
+// }, {
+// 	"id": 6,
+// 	"first_name": "Greg"
+// }, {
+// 	"id": 7,
+// 	"first_name": "Simonette"
+// }, {
+// 	"id": 8,
+// 	"first_name": "Sheelagh"
+// }, {
+// 	"id": 9,
+// 	"first_name": "James"
+// }, {
+// 	"id": 10,
+// 	"first_name": "Lane"
+// }]
+
+// // Convierto mi variable a formato JSON (Texto plano)
+// var json = JSON.stringify(objeto)
+
+// console.log(objeto)
+
+// /* =================== Recibimos un JSON ================== */
+// /* Recibo informacion en formato JSON */
+// // console.log(json)
+
+// /* Transformar el JSON a Objeto7Arreglo */
+// var objetoJson = JSON.parse(json)
+// // console.log(objetoJson)
+
+// /* Funcion constructora objeto persona */
+// function Persona(id, nombre) {
+// 	this.id = id;
+// 	this.nombre = nombre
+// }
+
+// /* Recorro el arreglo y voy creando un objeto de tipo Persona con cada componente (objeto) del arreglo */
+// var arregloPersona = objetoJson.map((person) => {
+// 	return new Persona(person.id, person.first_name)
+// })
+
+// // Convierto mi arreglo de objetos Persona a JSON
+// var jsonPersona = JSON.stringify(arregloPersona)
+
+
+// /* Lo mismo pero con forEach */
+// // var arregloPersona = []
+// // objetoJson.forEach(function (person) {
+// // 	arregloPersona.push(new Persona(person.id, person.first_name))
+// // }
+
+
+//--------------------------------------------------------------------------
+//--------------------------------------------------------------------------
+                        //CLASE 8
+//--------------------------------------------------------------------------
+//--------------------------------------------------------------------------
+
+
+// /* Manejo del DOM */
+
+// // document -> Objeto principal (raiz del DOM) Contiene todo el documento
+
+// /* Algunos atributos del objeto global "document" */
+// document.head // Todo el contenido del <head>
+
+// document.body // Todo el contenido del <body>
+
+// document.domain // URL (dominio)
+
+// document.forms // Todos los formularios
+
+// document.characterSet // Juego de caracteres utilizados
+
+// document.images // Todas las imagenes del documento
+
+// document.scripts // Todos los scripts
+
+// /* Seleccionando elementos del HTML */
+
+// document.getElementById('idElemento') // Selecciono un elemento por su ID
+
+// document.getElementsByClassName('claseElemento') // Selecciono elementos por clase (devuelve un objeto HTML Collection)
+
+// document.getElementsByTagName('tagElemento') // Seleccino elementos por etiqueta HTML (devuelve un HTML Collection)
+
+// document.querySelector('selectorCSS') // Selecciona EL PRIMER elemento que coincida con criterio
+
+// document.querySelectorAll('selectorCSS') // Selecciona TODOS los elementos que coincidan con el criterio (Devuelve un NodeList)
+
+
+// /* Manipulando elementos */
+
+// const elemento = document.querySelector('selector') // Selecciono un elemento cualquiera
+
+// elemento.id // Devuelve el id del elemento (Si tiene)
+
+// elemento.className // Devuelve las clases del elemento (Si tiene)
+
+// elemento.textContent // Lee el texto del elemento
+
+// elemento.innerText // Lee el texto del elemento, pero si tiene "visibility = hidden" en CSS NO lo encuentra
+
+// elemento.innerHTML // Lee el contenido del elemento INCLUYENDO el HTML
+
+// /* TODAS LAS EXPRESIONES ANTERIORES SIRVEN TAMBIEN PARA SETEAR VALORES DE PROPIEDADES, por ej: elemento.id = "nuevoID" */
+
+
+// /* Traversing en el DOM */
+
+// const elemento = document.querySelector('selector') // Selecciono un elemento cualquiera
+
+// elemento.childNodes // Selecciona los NODOS HIJOS (Incluye los espacios en blanco/saltos de linea)
+
+// elemento.children // Selecciona los HIJOS (Ignorando los espacios en blanco)
+
+// elemento.nodeName // Retorna la etiqueta o tag del nodo (h1, div, input, p, etc.)
+
+// elemento.nodeType // Retorna el TIPO de nodo (por ej: 1 = Elementos, 2 = Atributos, 3 = TextNode, 8 = Comentarios, 9 = documento, 10 = doctype)
+
+// elemento.parentNode // Selecciono el elemento Padre
+
+// elemento.parentElement // Selecciono el elemento Padre (Recomendado utilizar este)
+
+// elemento.previousElementSibling // Elemento HERMANO (mismo nivel jerarquico) previo
+
+// elemento.nextElementSibling // Elemento HERMANO (mismo nivel jerarquico) siguiente
+
+// /* Crear elementos */
+
+// const elementoNuevo = document.createElement('tag') // Crear un elemento HTML ("tag" = a, h1, h2, h3, h4, h5, h6, p, div, etc.)
+
+// elementoNuevo.className = 'nueva-clase' // Establece las clases de un elemento (BORRA LAS EXISTENTES)
+
+// elementoNuevo.setAttribute('atributo', 'valor') // Establece el valor de un atributo a un elemento HTML (por ej: "href", "http://www...")
+
+// elementoPadre.appendChild(elementoHijo) // Inserta el elementoHijo al final del elementoPadre
+
+// elementoPadre.insertBefore(elementoHijo, elementoReferencia) // Inserta el elementoHijo en el elementoPadre ANTES del elementoReferencia
+
+// /* Reemplazar elementos */
+
+// elementoPadre.replaceChild(elementoNuevo, elementoAnterior) // Reemplaza elementoAnterior con elementoNuevo
+
+// /* Eliminar elementos */
+
+// elemento.remove() // Elimina elemento
+
+// elementoPadre.removeChild(elementoHijo) // Elimina el elemento elementoHijo
+
+// /* Agregar o Quitar Clases */
+
+// elemento.classList.add('nueva-clase') // Agrega una nueva clase
+
+// elemento.classList.remove('clase') // Quita una clase
+
+// /* Manipulando Atributos */
+
+// elemento.getAttribute('atributo') // Obtengo el valor de un atributo (id, class, value, type, etc.)
+
+// elemento.setAttribute('atributo', 'valir') // Establecer el valor de un atributo a un elemento
+
+// elemento.hasAttribute('atributo') // Verifica si un elemento posee un atributo (Devuelve un BOOLEANO)
+
+// elemento.removeAttribute('atributo') // Elimina un atributo de un elemento
+
+// /* Modificar propiedades CSS */
+
+// elemento.style.propiedadCSS = 'valor' // Establece el valor de una propiedad CSS de un elemento
+
+
+//                        //DESAFIO DE CLASE 8
+// //--------------------------------------------------------------------------
+
+// function agregar(){
+//     var comida = prompt('Elegi tu comida favorita')
+//     var persona = prompt('Elegi tu persona favorita')
+//     var lugar = prompt('Elegi tu lgar del mundo favorito')
+
+//     if( comida && persona && lugar != null){
+//         var resultado = (`Cuando se levante la CUARENTENA tenes que salir a comer ${comida} con ${persona} en ${lugar}`)
+//         var h1 = document.createElement ('t')
+//         h1.setAttribute ('class', 'respuestaJuego')
+//         h1.appendChild(resultado)
+//         document.querySelector('sectorTexto').appendChild(h1)
+//     }
+
+//     else{
+//         alert ('ALGO ESTAS HACIENDO MAL')
+//     }
+
+// // }
+
+
+function agregar() {
+    var comida = prompt('Elegi tu comida favorita')
+    var persona = prompt('Elegi tu persona favorita')
+    var lugar = prompt('Elegi tu lugar del mundo favorito')
+    validar()
+    function validar() {
+        if (comida && persona && lugar != "") {
+            const sector = document.getElementById('sectorTexto')
+            const nuevoTexto = document.createElement('h1')
+            nuevoTexto.textContent = (`Cuando se levante la CUARENTENA tenes que salir a comer ${comida} con ${persona} en ${lugar}`)
+            nuevoTexto.classList.add('respuestaJuego')
+            sector.appendChild(nuevoTexto)
+        } else {
+            const sector = document.getElementById('sectorTexto')
+            const nuevoTexto = document.createElement('h1')
+            nuevoTexto.textContent = ('PONE LO QUE TE DIGO GIL Y SI NO ENTENDES PEDILE A MAURO')
+            nuevoTexto.classList.add('respuestaJuego')
+            sector.appendChild(nuevoTexto)
+        }
+    }
 }
 
-unirAnios(mitadDeAnio1 , mitadDeAnio2);
-
+function borro(){
+    document.querySelector('.respuestaJuego').remove()
 }
